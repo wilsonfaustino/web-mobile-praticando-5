@@ -1,0 +1,64 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.superhero-card {
+  width: 300px;
+  margin: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  float: left;
+}
+
+.winner {
+  border: 2px solid greenyellow;
+}
+
+.loser {
+  border: 2px solid red;
+}
+
+.tied {
+  border: 2px solid yellow;
+}
+
+.header img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  padding: 15px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.stats {
+  margin-top: 10px;
+}
+
+.stat {
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.bar {
+  height: 5px;
+  background-color: #3498db;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transition: width 0.5s;
+}
+
+@media (max-width: 600px) {
+  .superhero-card {
+    width: 80%;
+  }
+}
