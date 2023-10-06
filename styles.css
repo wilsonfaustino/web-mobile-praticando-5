@@ -11,18 +11,24 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   float: left;
+  border-radius: 1rem;
+}
+
+.hero-image {
+  max-height: 20rem;
+  object-fit: cover;
 }
 
 .winner {
-  border: 2px solid greenyellow;
+  border: 0.3rem solid greenyellow;
 }
 
 .loser {
-  border: 2px solid red;
+  border: 0.3rem solid red;
 }
 
 .tied {
-  border: 2px solid yellow;
+  border: 0.3rem solid yellow;
 }
 
 .header img {

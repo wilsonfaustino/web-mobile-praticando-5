@@ -22,33 +22,33 @@ const buildHeroCard = (hero, status) => {
   card.classList.add(status);
   card.innerHTML = `
 <div class="header">
-  <img src="${hero.image.url}" alt="${hero.name}">
+  <img src="${hero.image.url}" alt="${hero.name}" class="hero-image" />
 </div>
 <div class="info">
   <h2>${hero.name}</h2>
   <div class="stats">
     <div class="stat">
-      <strong>Inteligência:</strong> ${hero.powerstats.intelligence}
+      <strong>Inteligência:</strong> ${hero.powerstats.intelligence === 'null' ?  'Desconhecido' : hero.powerstats.intelligence}
       <div class="bar"></div>
     </div>
     <div class="stat">
-      <strong>Força:</strong> ${hero.powerstats.strength}
+      <strong>Força:</strong> ${hero.powerstats.strength === 'null' ?  'Desconhecido' : hero.powerstats.strength}
       <div class="bar"></div>
     </div>
     <div class="stat">
-      <strong>Velocidade:</strong> ${hero.powerstats.speed}
+      <strong>Velocidade:</strong> ${hero.powerstats.speed === 'null' ?  'Desconhecido' : hero.powerstats.speed}
       <div class="bar"></div>
     </div>
     <div class="stat">
-      <strong>Durabilidade:</strong> ${hero.powerstats.durability}
+      <strong>Durabilidade:</strong> ${hero.powerstats.durability === 'null' ?  'Desconhecido' : hero.powerstats.durability}
       <div class="bar"></div>
     </div>
     <div class="stat">
-      <strong>Poder:</strong> ${hero.powerstats.power}
+      <strong>Poder:</strong> ${hero.powerstats.power === 'null' ?  'Desconhecido' : hero.powerstats.power}
       <div class="bar"></div>
     </div>
     <div class="stat">
-      <strong>Combate:</strong> ${hero.powerstats.combat}
+      <strong>Combate:</strong> ${hero.powerstats.combat  === 'null' ?  'Desconhecido' : hero.powerstats.combat}
       <div class="bar"></div>
     </div>
   </div>
@@ -72,10 +72,10 @@ function compareHeroes(hero1, hero2) {
 
   // Calculate total points for each hero
   stats.forEach((stat) => {
-    hero1Total += hero1.powerstats[stat] || 0
+    hero1Total += hero1.powerstats[stat] !== 'null'
       ? parseInt(hero1.powerstats[stat], 10)
       : 0;
-    hero2Total += hero2.powerstats[stat] || 0
+    hero2Total += hero2.powerstats[stat] !== 'null'
       ? parseInt(hero2.powerstats[stat], 10)
       : 0;
   });
