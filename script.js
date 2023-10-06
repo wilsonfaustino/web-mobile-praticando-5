@@ -16,6 +16,28 @@ const getSuperHero = async (id) => {
   }
 };
 
+function buildStats(stats) {
+  const statsTranslate = {
+    intelligence: "Inteligência",
+    strength: "Força",
+    speed: "Velocidade",
+    durability: "Durabilidade",
+    power: "Poder",
+    combat: "Combate",
+  };
+  const output = Object.entries(stats).reduce((acc, [key, value]) => {
+    const template = `
+  <div class="stat">
+    <strong>${statsTranslate[key]}:</strong> ${value === "null" ? "?" : value}
+    <div class="bar" style="width: ${value}%"></div>
+  </div>
+  `.trim();
+    return acc + template;
+  }, "");
+
+  return output;
+}
+
 const buildHeroCard = (hero, status) => {
   const card = document.createElement("div");
   card.classList.add("superhero-card");
@@ -27,54 +49,7 @@ const buildHeroCard = (hero, status) => {
 <div class="info">
   <h2>${hero.name}</h2>
   <div class="stats">
-    <div class="stat">
-      <strong>Inteligência:</strong> ${
-        hero.powerstats.intelligence === "null"
-          ? "Desconhecido"
-          : hero.powerstats.intelligence
-      }
-      <div class="bar" style="width: ${hero.powerstats.intelligence}%"></div>
-    </div>
-    <div class="stat">
-      <strong>Força:</strong> ${
-        hero.powerstats.strength === "null"
-          ? "?"
-          : hero.powerstats.strength
-      }
-      <div class="bar" style="width: ${hero.powerstats.strength}%"></div>
-    </div>
-    <div class="stat">
-      <strong>Velocidade:</strong> ${
-        hero.powerstats.speed === "null"
-          ? "?"
-          : hero.powerstats.speed
-      }
-      <div class="bar" style="width: ${hero.powerstats.speed}%"></div>
-    </div>
-    <div class="stat">
-      <strong>Durabilidade:</strong> ${
-        hero.powerstats.durability === "null"
-          ? "?"
-          : hero.powerstats.durability
-      }
-      <div class="bar" style="width: ${hero.powerstats.durability}%"></div>
-    </div>
-    <div class="stat">
-      <strong>Poder:</strong> ${
-        hero.powerstats.power === "null"
-          ? "?"
-          : hero.powerstats.power
-      }
-      <div class="bar" style="width: ${hero.powerstats.power}%"></div>
-    </div>
-    <div class="stat">
-      <strong>Combate:</strong> ${
-        hero.powerstats.combat === "null"
-          ? "?"
-          : hero.powerstats.combat
-      }
-      <div class="bar" style="width: ${hero.powerstats.combat}%"></div>
-    </div>
+    ${buildStats(hero.powerstats)}
   </div>
 </div>
   `;
