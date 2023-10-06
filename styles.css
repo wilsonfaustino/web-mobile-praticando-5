@@ -21,6 +21,7 @@ body {
 
 .winner {
   border: 0.3rem solid greenyellow;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .loser {
@@ -55,10 +56,9 @@ h2 {
 
 .bar {
   height: 5px;
-  background-color: #3498db;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  background-color: #b4b7b9;
+  margin: 5px 0;
+  border-radius: 3px;
   width: 0;
   transition: width 0.5s;
 }

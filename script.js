@@ -28,28 +28,52 @@ const buildHeroCard = (hero, status) => {
   <h2>${hero.name}</h2>
   <div class="stats">
     <div class="stat">
-      <strong>Inteligência:</strong> ${hero.powerstats.intelligence === 'null' ?  'Desconhecido' : hero.powerstats.intelligence}
-      <div class="bar"></div>
+      <strong>Inteligência:</strong> ${
+        hero.powerstats.intelligence === "null"
+          ? "Desconhecido"
+          : hero.powerstats.intelligence
+      }
+      <div class="bar" style="width: ${hero.powerstats.intelligence}%"></div>
     </div>
     <div class="stat">
-      <strong>Força:</strong> ${hero.powerstats.strength === 'null' ?  'Desconhecido' : hero.powerstats.strength}
-      <div class="bar"></div>
+      <strong>Força:</strong> ${
+        hero.powerstats.strength === "null"
+          ? "?"
+          : hero.powerstats.strength
+      }
+      <div class="bar" style="width: ${hero.powerstats.strength}%"></div>
     </div>
     <div class="stat">
-      <strong>Velocidade:</strong> ${hero.powerstats.speed === 'null' ?  'Desconhecido' : hero.powerstats.speed}
-      <div class="bar"></div>
+      <strong>Velocidade:</strong> ${
+        hero.powerstats.speed === "null"
+          ? "?"
+          : hero.powerstats.speed
+      }
+      <div class="bar" style="width: ${hero.powerstats.speed}%"></div>
     </div>
     <div class="stat">
-      <strong>Durabilidade:</strong> ${hero.powerstats.durability === 'null' ?  'Desconhecido' : hero.powerstats.durability}
-      <div class="bar"></div>
+      <strong>Durabilidade:</strong> ${
+        hero.powerstats.durability === "null"
+          ? "?"
+          : hero.powerstats.durability
+      }
+      <div class="bar" style="width: ${hero.powerstats.durability}%"></div>
     </div>
     <div class="stat">
-      <strong>Poder:</strong> ${hero.powerstats.power === 'null' ?  'Desconhecido' : hero.powerstats.power}
-      <div class="bar"></div>
+      <strong>Poder:</strong> ${
+        hero.powerstats.power === "null"
+          ? "?"
+          : hero.powerstats.power
+      }
+      <div class="bar" style="width: ${hero.powerstats.power}%"></div>
     </div>
     <div class="stat">
-      <strong>Combate:</strong> ${hero.powerstats.combat  === 'null' ?  'Desconhecido' : hero.powerstats.combat}
-      <div class="bar"></div>
+      <strong>Combate:</strong> ${
+        hero.powerstats.combat === "null"
+          ? "?"
+          : hero.powerstats.combat
+      }
+      <div class="bar" style="width: ${hero.powerstats.combat}%"></div>
     </div>
   </div>
 </div>
@@ -72,12 +96,14 @@ function compareHeroes(hero1, hero2) {
 
   // Calculate total points for each hero
   stats.forEach((stat) => {
-    hero1Total += hero1.powerstats[stat] !== 'null'
-      ? parseInt(hero1.powerstats[stat], 10)
-      : 0;
-    hero2Total += hero2.powerstats[stat] !== 'null'
-      ? parseInt(hero2.powerstats[stat], 10)
-      : 0;
+    hero1Total +=
+      hero1.powerstats[stat] !== "null"
+        ? parseInt(hero1.powerstats[stat], 10)
+        : 0;
+    hero2Total +=
+      hero2.powerstats[stat] !== "null"
+        ? parseInt(hero2.powerstats[stat], 10)
+        : 0;
   });
 
   // Determine the winner and loser
@@ -90,7 +116,7 @@ function compareHeroes(hero1, hero2) {
     loser = hero1;
   } else {
     // In case of a tie
-    tied = {hero1, hero2}
+    tied = { hero1, hero2 };
   }
 
   return { winner, loser, tied };
@@ -111,7 +137,6 @@ const prepareFight = async () => {
     buildHeroCard(winner, "winner");
     buildHeroCard(loser, "loser");
   }
-
 };
 
 prepareFight();
